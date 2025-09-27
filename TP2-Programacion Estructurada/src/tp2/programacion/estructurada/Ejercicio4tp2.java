@@ -17,25 +17,49 @@ public class Ejercicio4tp2 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        double precio;
-        String categoria;
+        double precio, precioFinal;
+        String categoria, descuento;
+        
+        //Incializamos Variables
+        precioFinal = 0;
+        descuento = "";
         
         //Solicitud al Usuario
         System.out.print("Ingrese el Precio del Producto: ");
-        precio = input.nextDouble();
+        precio = Integer.parseInt(input.nextLine());
         
-        System.out.println("Ingrese la Categoria del producto (A, B o C). ");
+        System.out.print("Ingrese la Categoria del producto (A, B o C). ");
         categoria = input.nextLine();
         
+        //
         switch(categoria){
             case "A":
-                System.out.println("10% de descuento ");
+                precioFinal = precio-precio* 0.10;
+                descuento ="10%";
+                break;
+                
             case "B":
-                System.out.println("");
-        }
-       
-
+                precioFinal = precio-precio* 0.15;
+                descuento ="15%";
+                break;
+                
+            case "C":
+                precioFinal = precio-precio* 0.20;
+                descuento ="20%";
+                break;
          
+            default:
+                System.out.println("La categoria ingresa es incorrecta");
+                precioFinal = precio;
+                descuento = "0%";
+                break;
+        }
+        
+        //Imprimomos el Resultado
+        System.out.println("El precio del Producto es: " + precio);
+        System.out.println("El descuento aplicado es: " + descuento);
+        System.out.println("El precio final es: " + precioFinal);
+              
     
     }
     
