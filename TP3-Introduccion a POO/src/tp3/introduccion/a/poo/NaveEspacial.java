@@ -17,9 +17,30 @@ public NaveEspacial (String nombre, int combustible){
     this.combustible = combustible;
 }
 
-private espegar(){
+public boolean avanzar(int distancia){
+    return distancia < combustible;    
+}
+
+private void despegar(){
+    if (naveEspacial.avanzar){
+        combustible -= distancia;           
+    }
+    else{
+        System.out.println("Combustible Insuficiente para esa distancia");
+    }       
+}
+
+public void recargarCombustible(int cantidad){
+    if( (combustible + cantidad)<= 100) && cantidad > 0 );{ 
+        combustible += cantidad;
+    }
+    else {
+            System.out.println("");
+            
+    }
     
 }
+
 
 //despegar(), avanzar(distancia), recargarCombustible(cantidad), mostrarEstado().
 //Reglas: Validar que haya suficiente combustible antes de avanzar y evitar que se supere el límite al recargar.

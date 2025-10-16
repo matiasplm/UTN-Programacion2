@@ -15,8 +15,7 @@ public class Estudiantes {
     private double calificacion; 
    
 
-    
-    
+        
     
     public void getMostrarInfo(){
         System.out.println("Nombre :" + nombre);
