@@ -11,39 +11,56 @@ package tp3.introduccion.a.poo;
 public class NaveEspacial {
     private String nombre;
     private int combustible;
+    private boolean despego;
+    private int maxCombustible=200;
+    
     
 public NaveEspacial (String nombre, int combustible){
     this.nombre = nombre;
     this.combustible = combustible;
+    this.despego = false;
 }
-
-public boolean avanzar(int distancia){
-    return distancia < combustible;    
-}
-
-private void despegar(){
-    if (naveEspacial.avanzar){
-        combustible -= distancia;           
+       
+public void despegar(){
+    if (combustible > 0){
+        System.out.println("Despegue exitoso");   
+        despego = true;
     }
     else{
-        System.out.println("Combustible Insuficiente para esa distancia");
+        System.out.println("No hay suficiente combustible para despegar");
     }       
 }
 
-public void recargarCombustible(int cantidad){
-    if( (combustible + cantidad)<= 100) && cantidad > 0 );{ 
-        combustible += cantidad;
+public void avanzar(int distancia){
+    if (!despego){
+        System.out.println("La nave no despego");       
     }
-    else {
-            System.out.println("");
-            
+    else if (combustible > distancia){
+        combustible -= distancia;
+        System.out.println("La nave avanzo "+ distancia +" de años luz");
     }
-    
+    else{
+        System.out.println("No hay suficiente combustible para esa distancia");
+    } 
 }
 
+public void recargarCombustible(int cantidad){
+    if (cantidad + combustible <= maxCombustible){
+        combustible += cantidad;
+        System.out.println("Combustible Cargado correctamente");
+    }
+    else {
+        System.out.println(cantidad +" Excede el limite de carga de: " + maxCombustible);
+    }
+} 
 
-//despegar(), avanzar(distancia), recargarCombustible(cantidad), mostrarEstado().
-//Reglas: Validar que haya suficiente combustible antes de avanzar y evitar que se supere el límite al recargar.
-//Tarea: Crear una nave con 50 unidades de combustible, intentar avanzar sin recargar, luego recargar y avanzar correctamente. Mostrar el estado al final.
+
+public void mostrarEstado(){
+    System.out.println("La nave :" + nombre);
+    System.out.println("Combustible dispobible: " +combustible);
+    
+}
+    
+    
     
 }
